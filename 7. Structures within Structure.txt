@@ -1,0 +1,67 @@
+//Using a Box Structure
+#include <iostream>
+using namespace std;
+//Structure to Represent Name
+struct Name
+{
+	char firstName[80];
+	char lastName[80];
+	//Function to display the Name
+	void show()
+	{
+		cout << firstName << " " << lastName;
+	}//End void show()
+};//End Name Structure
+  //Structure to Represent Date
+struct Date
+{
+	int day;
+	int month;
+	int year;
+	//Function to display the Date
+	void show()
+	{
+		cout << day << "/" << month << "/" << year;
+	}//End void show()
+};//End Date Structure
+  //Structure to Represent Phone
+struct Phone
+{
+	int areaCode;
+	int number;
+	//Function to display the Phone
+	void show()
+	{
+		cout << areaCode << "-" << number;
+	}//End void show()
+};//End Phone Structure
+  //Structure to Represent a Person
+struct Person
+{
+	Name name;
+	Date birthDate;
+	Phone number;
+	//Function to display a Person
+	void show()
+	{
+		cout << endl;
+		name.show();
+		cout << endl;
+		cout << "Born:";
+		birthDate.show();
+		cout << endl;
+		cout << "Telephon:";
+		number.show();
+		cout << endl;
+	}//End show()
+};//End Person Structure
+int main()
+{
+	Person p1 = {
+		{ "Ahmed", "Ali" },  //Initialize Name  member
+		{ 29,1,1983 },		//initialize Date  member
+		{ 51,4452293 }		//initialize Phone member
+	};
+	p1.show();
+	return 0;
+}

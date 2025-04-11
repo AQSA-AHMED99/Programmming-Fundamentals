@@ -1,0 +1,51 @@
+//Using a BOOK Structure
+
+#include <iostream>
+
+using namespace std;
+
+//Structure to Represent a Box
+
+struct Book
+{
+	char title[80];
+	char author[80];
+	char publisher[80];
+	int publishingYear;
+};
+
+//Prototype of function to calculate the volume of a box
+
+int main()
+{
+	Book oopBook1 = {	"Beginning C++",
+						"Ivor Horton’s",
+						"Wrox",
+						1998
+					};
+
+	cout<<endl
+		<<"Title		 of oopBook1 = "<<oopBook1.title<<endl
+		<<"Author		 of oopBook1 = "<<oopBook1.author<<endl
+		<<"Publisher	 of oopBook1 = "<<oopBook1.publisher<<endl
+		<<"Publishing Year  of oopBook1 = "<<oopBook1.publishingYear<<endl;
+	
+	
+	Book oopBook2= {	"OOP in C++",
+						"Robert Lafore",
+						"SAMS",
+						1998
+					};
+
+	oopBook2.publishingYear += 2;
+
+	cout<<endl
+		<<"Title		 of oopBook2 = "<<oopBook2.title<<endl
+		<<"Author		 of oopBook2 = "<<oopBook2.author<<endl
+		<<"Publisher	 of oopBook2 = "<<oopBook2.publisher<<endl
+		<<"Publishing Year  of oopBook2 = "<<oopBook2.publishingYear<<endl;
+
+return 0;
+}
+
+

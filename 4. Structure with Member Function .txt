@@ -1,0 +1,42 @@
+//Using a Box Structure
+#include <iostream>
+using namespace std;
+//Structure to Represent a Box
+struct Box
+{
+	double length;
+	double height;
+	double breadth;
+	//Member Function of type Box
+	double volume()
+	{
+		return length * height * breadth;
+	}
+};
+int main()
+{
+	Box firstBox = { 40.0, 30.0, 10.0 };
+	Box secondBox = { 50.0, 40.0, 20.0 };
+	//Calculate the volume of the first box
+	double firstBoxVolume = firstBox.volume();
+
+	cout << endl
+		<< "Size of first Box object is "
+		<< firstBox.length << " by "
+		<< firstBox.breadth << " by "
+		<< firstBox.height
+		<< endl;
+	cout << "Volume of first Box Object is " << firstBoxVolume
+		<< endl;
+
+	//Calculate the volume of the second box
+	cout << endl
+		<< "Size of second Box object is "
+		<< secondBox.length << " by "
+		<< secondBox.breadth << " by "
+		<< secondBox.height
+		<< endl;
+	cout << "Volume of second Box Object is " << secondBox.volume()
+		<< endl;
+return 0;
+}

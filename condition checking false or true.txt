@@ -1,0 +1,13 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+	int first = 10;
+	int last = 20;
+		if (first <= last)
+			cout<<(first <= last)<<endl;
+			cout<<first<<endl;		
+return 0;
+}//end of main()

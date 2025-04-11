@@ -1,0 +1,120 @@
+#include<iostream>
+#include<fstream>
+
+using namespace std;
+// define a structure to store student data
+struct student {
+	int cms;
+	char name[30];
+	float marks;
+	void getData();		// get student data from user
+	void displayData(); // display data
+};
+void student::getData() {
+	cout << "\nEnter Roll No. : ";
+	cin >> cms;
+	cin.ignore(); // ignore the newline char inserted when you press enter
+	cout << "Enter Name : ";
+	cin.getline(name, 30);
+	cout << "Enter Marks : ";
+	cin >> marks;
+}
+
+void student::displayData() {
+	cout << "\nRoll No. : " << cms << endl;
+	cout << "Name : " << name << endl;
+	cout << "Marks : " << marks << endl;
+}
+void menu();
+void writeData();
+void readData();
+void displayData();
+void deleteData();
+
+int maxSize = 3;
+student s[3]; // array of 3 students
+ofstream wfile;
+ifstream rfile;
+//to count to number of students after deletion
+
+int main() {	
+	int choice;
+	while (true)
+	{
+		menu();
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			writeData();
+			break;
+		case 2:
+			readData();
+			break;
+		case 3:
+			displayData();
+			break;
+		case 4:
+			deleteData();
+			break;
+		case 5:
+			exit(0);
+		default:
+			break;
+		}//end switch()
+	}//end while()
+return 0;
+}//end main()
+void menu()
+{
+	cout << "Press 1 to write to the file" << endl;
+	cout << "Press 2 to read from file" << endl;
+	cout << "Press 3 to dispaly student data" << endl;
+	cout << "Press 4 to delete a student data" << endl;
+	cout << "Press 5 to exit" << endl;
+}
+
+void writeData()
+{
+	wfile.open("students.txt"); //, ios::out); // open file for writing
+	for (int i = 0; i < maxSize; i++) {
+		s[i].getData();
+		wfile.write((char *)&s[i], sizeof(s[i]));	//(char*)&s - type casting &s into a char pointer.
+	}
+	wfile.close(); // close the file
+}
+void readData()
+{
+	rfile.open("students.txt");// , ios::in); // open file for reading
+	for (int i = 0; i < maxSize; i++) {
+		rfile.read((char *)&s[i], sizeof(s[i])); // read an object from a file
+	}
+	rfile.close(); // close the file
+}
+
+void displayData()
+{
+	for (int i = 0; i < maxSize; i++) {
+		s[i].displayData();
+	}
+}
+void deleteData()
+{
+	int cms, count = 0;
+	wfile.open("students.txt");
+	cout << "enter student cms to delete it:";
+	cin >> cms;
+
+	for (int i = 0; i < maxSize; i++)
+	{
+		if (s[i].cms != cms)
+		{
+			wfile.write((char *)&s[i], sizeof(s[i]));
+			count++;
+		}
+	}
+	wfile.close();
+	maxSize = count;
+	readData();
+}
+//		The functions have nothing to do with size.It's just a dummy byte.

@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+// define a structure to store student data
+struct student {
+	int cms;
+	char name[30];
+	float marks;
+	void getData();		// get student data from user
+	void displayData(); // display data
+};
+void student::getData() {
+	cout << "\nEnter CMS No. : ";
+	cin >> cms;
+	cin.ignore(); // ignore the newline char inserted when you press enter
+	cout << "Enter Name : ";
+	cin.getline(name, 30);
+	cout << "Enter Marks : ";
+	cin >> marks;
+}
+
+void student::displayData() {
+	cout << "\nCMS No. : " << cms << endl;
+	cout << "Name : " << name << endl;
+	cout << "Marks : " << marks << endl;
+}
+int main() {
+	student students[3];
+	int cms;
+	for (int i = 0; i < 3; i++)
+	{
+		students[i].getData();
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		students[i].displayData();
+	}
+	cout << "Enter cms number to search:";
+	cin >> cms;
+	for (int i = 0; i < 3; i++)
+	{
+		if (students[i].cms == cms)
+		{
+			students[i].displayData();
+		}
+	}
+
+return 0;
+}//end main()

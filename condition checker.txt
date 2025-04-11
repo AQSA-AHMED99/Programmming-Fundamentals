@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+	char first = 'A';
+	char last = 'Z';
+		if (first == last)
+			cout<<first;
+		else
+			cout<<"Value of Expression = "<<(first==last);
+			cout<<"\nand therfore did not print \nthe first letter\n";
+	
+return 0;
+}//end of main()
